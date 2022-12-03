@@ -1,4 +1,4 @@
-from typing import Callable
+from typing import Callable, Generator
 
 shape_scores = {
     'A': 1,
@@ -33,7 +33,7 @@ def compute_ideal_score(line: str) -> int:
         return score + 0
 
 
-def gen_matches(compute_score: Callable[[str], int]):
+def gen_matches(compute_score: Callable[[str], int]) -> Generator[int, None, None]:
     with open("input.txt") as _in:
-        while (line := _in.readline()) != '':
+        for line in _in:
             yield compute_score(line)
