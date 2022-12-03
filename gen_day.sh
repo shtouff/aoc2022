@@ -9,13 +9,10 @@ day=$1 && shift
     exit 1
 }
 
-mkdir "${day}"
-mkdir "${day}"/s1
-mkdir "${day}"/s2
+mkdir -p "${day}"/s1
 
 touch "${day}"/__init__.py
 touch "${day}"/s1/__init__.py
-touch "${day}"/s2/__init__.py
 
 cat <<EOF > "${day}"/s1/main.py
 #!/usr/bin/env python3
@@ -24,4 +21,4 @@ cat <<EOF > "${day}"/s1/main.py
 EOF
 
 chmod +x "${day}"/s1/main.py
-cp "${day}"/s1/main.py "${day}"/s2/main.py
+cp -a "${day}"/s1 "${day}"/s2
