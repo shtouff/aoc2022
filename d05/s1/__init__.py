@@ -2,14 +2,7 @@ import re
 from typing import List, Generator, Tuple, Callable
 
 
-def build_stack_regex():
-    chunk = r'(\[[A-Z]\]|   )'
-    chunk_list = [chunk] * 9
-    res = r'^' + r' '.join(chunk_list)
-    return re.compile(res)
-
-
-stack_regex = build_stack_regex()
+stack_regex = re.compile(r'^' + r' '.join([r'(\[[A-Z]\]|   )'] * 9))
 move_regex = re.compile(r'^move ([0-9]+) from ([0-9]) to ([0-9])')
 
 
@@ -31,7 +24,7 @@ def gen_moves(_in) -> Generator[Tuple[int, int, int], None, None]:
 
 
 def crane9000(count, src, dest):
-    for i in range(count):
+    for _ in range(count):
         crate = src.pop()
         dest.append(crate)
 
@@ -42,6 +35,4 @@ def do_moves(crane: Callable[[int, List[str], List[str]], None]):
         for count, src, dest in gen_moves(_in):
             crane(count, stacks[src - 1], stacks[dest - 1])
 
-        for s in stacks:
-            print(s[-1], end='')
-        print()
+        print(''.join(s[-1] for s in stacks))

@@ -8,4 +8,4 @@ def crane9001(count, src, dest):
     dest.extend(crates)
 
 
-stacks = do_moves(crane9001)
+do_moves(crane9001)
