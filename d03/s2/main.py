@@ -15,4 +15,10 @@ def gen_runsacks() -> Generator[int, None, None]:
                 sets = []
 
 
-print(sum(gen_runsacks()))
+def main():
+    return sum(gen_runsacks())
+
+
+if __name__ == '__main__':
+    from timeit import timeit
+    print(str(main()) + ' time: ' + str(timeit("main()", setup="from __main__ import main", number=1)))

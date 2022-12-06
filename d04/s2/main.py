@@ -12,4 +12,10 @@ def gen_overlapped_assignments() -> Generator[str, None, None]:
                 yield line
 
 
-print(len(list(gen_overlapped_assignments())))
+def main():
+    return len(list(gen_overlapped_assignments()))
+
+
+if __name__ == '__main__':
+    from timeit import timeit
+    print(str(main()) + ' time: ' + str(timeit("main()", setup="from __main__ import main", number=1)))
