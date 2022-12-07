@@ -18,6 +18,13 @@ cat <<EOF > "${day}"/s1/main.py
 #!/usr/bin/env python3
 
 
+def main():
+    pass
+
+
+if __name__ == '__main__':
+    from timeit import timeit
+    print(str(main()) + ' time: ' + str(timeit("main()", setup="from __main__ import main", number=1)))
 EOF
 
 chmod +x "${day}"/s1/main.py
