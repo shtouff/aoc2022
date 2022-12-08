@@ -8,7 +8,7 @@ cd_regex = re.compile(r'^\$ cd (/|\.\.|.+)')
 file_regex = re.compile(r'^(dir|[0-9]+) (.+)')
 
 
-def gen_tree():
+def gen_tree() -> Tree:
     cwd = []
     tree = Tree()
     tree.create_node("/", "/", data=None)
@@ -35,14 +35,12 @@ def gen_tree():
     return tree
 
 
-def tree_size(tree) -> int:
-    return sum([tree[node].data for node in tree.expand_tree(mode=Tree.DEPTH) if tree[node].data is not None])
+def tree_size(tree: Tree) -> int:
+    return sum([tree[node].data for node in tree.expand_tree() if tree[node].data is not None])
 
 
-def gen_small_dirs(tree) -> Generator[int, None, None]:
-    for node in tree.expand_tree(mode=Tree.WIDTH):
+def gen_small_dirs(tree: Tree) -> Generator[int, None, None]:
+    for node in tree.expand_tree():
         if tree[node].data is None:
             if (size := tree_size(tree.subtree(node))) < 100_000:
                 yield size
-
-

@@ -6,8 +6,8 @@ from treelib import Tree
 from d07.s1 import gen_tree, tree_size
 
 
-def gen_big_dirs(tree, n: int) -> Generator[int, None, None]:
-    for node in tree.expand_tree(mode=Tree.WIDTH):
+def gen_big_dirs(tree: Tree, n: int) -> Generator[int, None, None]:
+    for node in tree.expand_tree():
         if tree[node].data is None:
             if (size := tree_size(tree.subtree(node))) >= n:
                 yield size

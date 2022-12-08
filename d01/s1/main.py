@@ -3,7 +3,7 @@ from d01.s1 import gen_elves
 
 
 def main():
-    return max(list(gen_elves()))
+    return max(gen_elves())
 
 
 if __name__ == '__main__':
