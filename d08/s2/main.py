@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from itertools import count
 from typing import Generator
 
 import numpy as np
@@ -14,14 +15,12 @@ def scenic_score(x: int, y: int, grid: np.array) -> int:
     left = grid[y:y + 1, 0:x].flatten()
     right = grid[y:y + 1, x + 1:].flatten()
 
-    score = 1
+    score = vdist = 1
     for vector in reversed(top), bottom, reversed(left), right:
-        vdistance = 0
-        for h in vector:
-            vdistance += 1
+        for h, vdist in zip(vector, count(1)):
             if h >= v:
                 break
-        score *= vdistance
+        score *= vdist
 
     return score
 
