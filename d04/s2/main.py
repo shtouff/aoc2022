@@ -5,7 +5,7 @@ from d04.s1 import parse_assignments
 
 
 def gen_overlapped_assignments() -> Generator[str, None, None]:
-    with open('input.txt') as _in:
+    with open('../input.txt') as _in:
         for line in _in:
             one, two = parse_assignments(line)
             if not one.isdisjoint(two):

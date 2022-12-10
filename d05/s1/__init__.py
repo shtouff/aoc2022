@@ -30,7 +30,7 @@ def crane9000(count, src, dest):
 
 
 def do_moves(crane: Callable[[int, List[str], List[str]], None]) -> str:
-    with open('input.txt') as _in:
+    with open('../input.txt') as _in:
         stacks = get_stacks(_in)
         for count, src, dest in gen_moves(_in):
             crane(count, stacks[src - 1], stacks[dest - 1])

@@ -26,7 +26,7 @@ def gen_visibles(grid: np.array) -> Generator[int, None, None]:
 
 def main():
     grid = []
-    with open('input.txt') as _in:
+    with open('../input.txt') as _in:
         for line in (e.rstrip('\n') for e in _in):
             grid.append([int(e) for e in line])
     grid = np.array(grid)

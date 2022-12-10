@@ -3,7 +3,7 @@ from d06.s1 import stop_after_n_distinct
 
 
 def main():
-    return stop_after_n_distinct('input.txt', 14)
+    return stop_after_n_distinct('../input.txt', 14)
 
 
 if __name__ == '__main__':

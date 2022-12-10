@@ -34,6 +34,6 @@ def compute_ideal_score(line: str) -> int:
 
 
 def gen_matches(compute_score: Callable[[str], int]) -> Generator[int, None, None]:
-    with open("input.txt") as _in:
+    with open("../input.txt") as _in:
         for line in _in:
             yield compute_score(line)

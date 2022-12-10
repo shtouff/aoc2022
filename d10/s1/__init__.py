@@ -35,7 +35,7 @@ instructions = {
 
 
 def gen_ops():
-    with open('input.txt') as _in:
+    with open('../input.txt') as _in:
         for line in (e.rstrip('\n') for e in _in):
             if m := op_regex.match(line):
                 yield instructions[m.groups()[0]](operands=m.groups()[1:])

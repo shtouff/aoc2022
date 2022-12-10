@@ -12,7 +12,7 @@ def gen_tree() -> Tree:
     cwd = []
     tree = Tree()
     tree.create_node("/", "/", data=None)
-    with open('input.txt') as _in:
+    with open('../input.txt') as _in:
         for line in (e.rstrip('\n') for e in _in):
             if m := cd_regex.match(line):
                 if m[1] == '/':

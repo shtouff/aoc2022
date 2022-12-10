@@ -28,7 +28,7 @@ def main():
 
         sprite = [regs['X'] - 1, regs['X'], regs['X'] + 1]
 
-    return crt + '\nFPGPHFGH'
+    return '\n' + crt + '\nFPGPHFGH'
 
 
 if __name__ == '__main__':

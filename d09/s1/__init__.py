@@ -6,7 +6,7 @@ move_regex = re.compile(r'^([UDLR]) ([0-9]+)')
 
 
 def gen_moves() -> Generator[Tuple[str, int], None, None]:
-    with open('input.txt') as _in:
+    with open('../input.txt') as _in:
         for move in (line.rstrip('\n') for line in _in):
             if m := move_regex.match(move):
                 yield m[1], int(m[2])
