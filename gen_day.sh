@@ -29,3 +29,5 @@ EOF
 
 chmod +x "${day}"/s1/main.py
 cp -a "${day}"/s1 "${day}"/s2
+
+(cd ${day} && aoc download -i input.txt)
