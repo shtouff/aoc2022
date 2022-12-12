@@ -24,14 +24,10 @@ def add_edges(g: nx.DiGraph, m: List[List[str]], x: int, y: int):
     for neigh in (n for n in (u, d, l, r) if n):
         ev_neigh = ord(m[neigh[1]][neigh[0]])
 
-        if ev_node > ev_neigh:
+        if ev_node > ev_neigh + 1:
             g.add_edge((x, y), neigh)
-            if ev_node == ev_neigh + 1:
-                g.add_edge(neigh, (x, y))
-        elif ev_node < ev_neigh:
+        elif ev_node + 1 < ev_neigh:
             g.add_edge(neigh, (x, y))
-            if ev_node + 1 == ev_neigh:
-                g.add_edge((x, y), neigh)
         else:
             g.add_edge((x, y), neigh)
             g.add_edge(neigh, (x, y))
