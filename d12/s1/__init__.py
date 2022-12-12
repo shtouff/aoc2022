@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Tuple, Optional
 
 import networkx as nx
 
@@ -37,7 +37,7 @@ def add_edges(g: nx.DiGraph, m: List[List[str]], x: int, y: int):
             g.add_edge(neigh, (x, y))
 
 
-def init_graph(g: nx.DiGraph, m):
+def init_graph(g: nx.DiGraph, m: List[List[str]]) -> Tuple[Optional[Tuple[int, int]], Optional[Tuple[int, int]]]:
     ylen = len(m)
     xlen = len(m[0])
     start = end = None

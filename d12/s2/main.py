@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
+from typing import Tuple, List, Generator
 
 import networkx as nx
 
 from d12.s1 import get_map, init_graph
 
 
-def gen_shortest_paths(g, m, end):
+def gen_shortest_paths(g: nx.DiGraph, m: List[List[str]], end: Tuple[int, int]) -> Generator[int, None, None]:
     ylen = len(m)
     xlen = len(m[0])
 
